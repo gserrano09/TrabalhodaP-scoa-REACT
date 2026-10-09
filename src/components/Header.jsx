@@ -5,7 +5,7 @@ export default function Header() {
     <header className="header">
       <div className="container header-inner">
         <Link to="/" className="logo">
-          🐾 Adota<span>Já</span>
+          AdotaJá
         </Link>
         <nav className="nav">
           <NavLink to="/" end>

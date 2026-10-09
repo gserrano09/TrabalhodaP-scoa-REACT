@@ -19,7 +19,7 @@ export default function AnimalDetail() {
     return (
       <div className="container status">
         <h2>Animal não encontrado</h2>
-        <Link to="/">← Voltar à lista</Link>
+        <Link to="/">Voltar à lista</Link>
       </div>
     )
   }
@@ -39,7 +39,7 @@ export default function AnimalDetail() {
   return (
     <article className="container detail">
       <button className="back" onClick={goBack}>
-        ← Voltar
+        Voltar
       </button>
 
       <div className="detail-grid">
@@ -58,16 +58,18 @@ export default function AnimalDetail() {
 
         <div>
           <h1>{animal.name}</h1>
-          <p className="lead">{animal.story}</p>
+          <p>{animal.story}</p>
 
-          <dl className="facts">
-            {facts.map(([label, value]) => (
-              <div key={label}>
-                <dt>{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
-          </dl>
+          <table className="facts">
+            <tbody>
+              {facts.map(([label, value]) => (
+                <tr key={label}>
+                  <th>{label}</th>
+                  <td>{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
           {animal.breedInfo && (
             <section className="breed">
@@ -75,7 +77,7 @@ export default function AnimalDetail() {
               <p>{animal.breedInfo}</p>
               {animal.breedUrl && (
                 <a href={animal.breedUrl} target="_blank" rel="noreferrer">
-                  Ler mais na Wikipédia ↗
+                  Ler mais na Wikipédia
                 </a>
               )}
             </section>

@@ -17,36 +17,35 @@ export default function AdoptionForm({ animalName }) {
   }
 
   if (sent) {
-    return (
-      <p className="success">
-        ✅ Pedido enviado! O abrigo vai entrar em contacto contigo sobre o/a {animalName}.
-      </p>
-    )
+    return <p className="success">Recebemos o teu pedido. O abrigo vai contactar-te por email.</p>
   }
 
   if (!open) {
     return (
       <button className="btn" onClick={() => setOpen(true)}>
-        Quero adotar o/a {animalName}
+        Pedir para adotar
       </button>
     )
   }
 
   return (
     <form className="adopt-form" onSubmit={handleSubmit}>
-      <h2>Pedido de adoção</h2>
-      <input name="name" placeholder="O teu nome" value={form.name} onChange={handleChange} required />
-      <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required />
-      <textarea
-        name="message"
-        placeholder={`Porque queres adotar o/a ${animalName}?`}
-        rows="3"
-        value={form.message}
-        onChange={handleChange}
-      />
+      <h2>Pedido de adoção: {animalName}</h2>
+      <label>
+        Nome
+        <input name="name" value={form.name} onChange={handleChange} required />
+      </label>
+      <label>
+        Email
+        <input name="email" type="email" value={form.email} onChange={handleChange} required />
+      </label>
+      <label>
+        Mensagem (opcional)
+        <textarea name="message" rows="3" value={form.message} onChange={handleChange} />
+      </label>
       <div className="form-actions">
         <button type="submit" className="btn">
-          Enviar pedido
+          Enviar
         </button>
         <button type="button" className="btn-secondary" onClick={() => setOpen(false)}>
           Cancelar

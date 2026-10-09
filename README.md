@@ -1,6 +1,6 @@
-# 🐾 AdotaJá — Aplicação de adoção de animais
+# AdotaJá: aplicação de adoção de animais
 
-Projeto do curso de React JS: uma aplicação para encontrar animais para adoção.
+Projeto final do curso de React JS. Lista animais de abrigos e permite pedir a adoção.
 
 ## Funcionalidades
 
@@ -23,11 +23,11 @@ Projeto do curso de React JS: uma aplicação para encontrar animais para adoç�
 
 ## Fontes de dados
 
-- `public/data/animals.json` — registo dos animais do abrigo
-- [Dog CEO API](https://dog.ceo/dog-api/) — fotografias reais dos cães
-- [Wikipédia PT](https://pt.wikipedia.org) (API MediaWiki) — descrição e fotografia das raças
+- `public/data/animals.json`: registo dos animais do abrigo
+- [Dog CEO API](https://dog.ceo/dog-api/): fotografias reais dos cães
+- [Wikipédia PT](https://pt.wikipedia.org) (API MediaWiki): descrição e fotografia das raças
 
-Não é necessária base de dados nem chaves de API.
+A app não usa base de dados nem chaves de API.
 
 ## Como correr
 

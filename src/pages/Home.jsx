@@ -43,15 +43,17 @@ export default function Home() {
   })
 
   return (
-    <>
-      <section className="hero">
-        <div className="container">
-          <h1>Encontra o teu novo melhor amigo</h1>
-          <p>Cães, gatos e coelhos de abrigos de todo o país à espera de uma família.</p>
-        </div>
-      </section>
+    <div className="container">
+      <div className="page-title">
+        <h1>Animais para adoção</h1>
+        {!loading && !error && (
+          <p className="muted">
+            {results.length} {results.length === 1 ? 'resultado' : 'resultados'}
+          </p>
+        )}
+      </div>
 
-      <section className="container">
+      <div className="layout">
         <Filters
           filters={filters}
           onChange={updateFilter}
@@ -61,26 +63,23 @@ export default function Home() {
           locations={locations}
         />
 
-        {loading && <p className="status">A carregar animais…</p>}
-        {error && <p className="status error">Não foi possível carregar os animais: {error}</p>}
+        <section>
+          {loading && <p className="status">A carregar…</p>}
+          {error && <p className="status error">Não foi possível carregar os animais: {error}</p>}
 
-        {!loading && !error && (
-          <>
-            <p className="muted count">
-              {results.length} {results.length === 1 ? 'animal disponível' : 'animais disponíveis'}
-            </p>
-            {results.length === 0 ? (
-              <p className="status">Nenhum animal corresponde à pesquisa. 😿</p>
-            ) : (
-              <div className="grid">
-                {results.map((animal) => (
-                  <AnimalCard key={animal.id} animal={animal} />
-                ))}
-              </div>
-            )}
-          </>
-        )}
-      </section>
-    </>
+          {!loading && !error && results.length === 0 && (
+            <p className="status">Não há animais com estes filtros.</p>
+          )}
+
+          {!loading && !error && results.length > 0 && (
+            <div className="grid">
+              {results.map((animal) => (
+                <AnimalCard key={animal.id} animal={animal} />
+              ))}
+            </div>
+          )}
+        </section>
+      </div>
+    </div>
   )
 }

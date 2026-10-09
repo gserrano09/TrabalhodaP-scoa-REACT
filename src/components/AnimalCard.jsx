@@ -6,16 +6,11 @@ export default function AnimalCard({ animal }) {
   return (
     <Link to={`/animal/${animal.id}`} className="card">
       <AnimalImage animal={animal} className="card-img" />
-      <div className="card-body">
-        <div className="card-top">
-          <h3>{animal.name}</h3>
-          <span className="badge">{animal.type}</span>
-        </div>
-        <p className="muted">{animal.breed}</p>
-        <p className="card-meta">
-          {formatAge(animal.ageMonths)} · {animal.sex} · 📍 {animal.location}
-        </p>
-      </div>
+      <h3>{animal.name}</h3>
+      <p>
+        {animal.breed}, {formatAge(animal.ageMonths)}
+      </p>
+      <p>{animal.location}</p>
     </Link>
   )
 }

@@ -1,16 +1,11 @@
 import { useState } from 'react'
-import { typeEmoji } from '../utils/format'
 
-// Mostra a foto do animal ou um emoji se a imagem não existir / falhar
+// Mostra a foto do animal ou um aviso se a imagem não existir / falhar
 export default function AnimalImage({ animal, src = animal.image, className = '' }) {
   const [failed, setFailed] = useState(false)
 
   if (!src || failed) {
-    return (
-      <div className={`img-fallback ${className}`} aria-label={animal.name}>
-        {typeEmoji[animal.type] ?? '🐾'}
-      </div>
-    )
+    return <div className={`img-fallback ${className}`}>Sem fotografia</div>
   }
 
   return (

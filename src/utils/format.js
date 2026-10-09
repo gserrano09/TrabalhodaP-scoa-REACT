@@ -3,5 +3,3 @@ export function formatAge(months) {
   const years = Math.floor(months / 12)
   return `${years} ${years === 1 ? 'ano' : 'anos'}`
 }
-
-export const typeEmoji = { Cão: '🐶', Gato: '🐱', Coelho: '🐰' }
